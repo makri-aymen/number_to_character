@@ -1,9 +1,9 @@
 name: number_to_character
 description: A new Flutter plugin.
 version: 0.0.1
-author:
-homepage:
-
+homepage: https://github.com/makri-aymen/number_to_character
+#flutter pub publish --dry-run  to check the errors
+#flutter pub publish to publish the package
 environment:
   sdk: ">=2.7.0 <3.0.0"
   flutter: ">=1.20.0"
