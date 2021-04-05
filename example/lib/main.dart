@@ -77,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () async {
           try{
             //int number = int.parse(ControllerText.text);
-            ControllerText2.text = converter.convert(int.parse(ControllerText.text));
+            ControllerText2.text = converter.convertInt(int.parse(ControllerText.text));
             //ControllerText2.text = converterold.convert(int.parse(ControllerText.text));
           }catch(E){
 
