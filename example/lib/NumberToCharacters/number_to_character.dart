@@ -15,10 +15,25 @@ class NumberToCharacterConverter {
     langu=lang;
   }
 
-  String convert(int number) {
+  String convertInt(int number) {
     if (number == null) return '';
     return getTextForNumber(number);
   }
+
+
+  String convertDouble(double number) {
+    if (number == null) return '';
+
+    int firstNumber = int.parse(number.toString().split('.')[0]);
+    int secondNumber = int.parse(number.toString().split('.')[1]);
+    String numberInCharecters;
+
+    numberInCharecters = getTextForNumber(firstNumber);
+    numberInCharecters += " "+_numberMappings.mappings[21].toString()+" "+getTextForNumber(secondNumber);
+
+    return numberInCharecters;
+  }
+
 
   String getTextForNumber(int number) {
     var segments = _numberSplitter.splitNumber(number);

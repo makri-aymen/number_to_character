@@ -4,13 +4,10 @@ class NumberMappings {
   NumberMappings(String lang){
     if(lang=='en'){
       this.mappings = mappingsEn;
-      //print("language is working greaztlu -/*********************************************");
     }else if(lang=='fr'){
       this.mappings = mappingsFr;
-      //print("language is working greaztlu -/*********************************************");
     }else if(lang=='ar'){
       this.mappings = mappingsAr;
-      //print("language is working greaztlu -/*********************************************");
     }
   }
 
@@ -43,6 +40,7 @@ class NumberMappings {
     80: 'eighty',
     90: 'ninety',
     0: 'and',
+    21: 'comma',
     100: 'hundred',
     1000: 'thousand',
     10000: 'million',
@@ -81,6 +79,7 @@ class NumberMappings {
     80: 'quatre-vingts',
     90: 'quatre-vingt dix',
     0: 'et',
+    21: 'virgule',
     100: 'cent',
     1000: 'mille',
     10000: 'million',
@@ -119,6 +118,7 @@ class NumberMappings {
     80: "ثمانون",
     90: "تسعون" ,
     0: 'و',
+    21: 'فاصل',
     100: 'مائة',
     1000: 'ألف',
     10000: 'مليون',
