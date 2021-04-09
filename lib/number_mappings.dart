@@ -8,6 +8,8 @@ class NumberMappings {
       this.mappings = mappingsFr;
     }else if(lang=='ar'){
       this.mappings = mappingsAr;
+    }else if(lang=='es'){
+      this.mappings = mappingsEs;
     }
   }
 
@@ -127,5 +129,46 @@ class NumberMappings {
     10000000: 'كوادريليون',
     100000000: 'كوينتريليون',
   };
+
+
+  var mappingsEs = {
+    1: 'a',
+    2: 'dos',
+    3: 'tres',
+    4: 'cuatro',
+    5: 'cinco',
+    6: 'seis',
+    7: 'siete',
+    8: 'ocho',
+    9: 'nuevo',
+    10: 'diez',
+    11: 'once',
+    12: 'doce',
+    13: 'trece',
+    14: 'catorce',
+    15: 'quince',
+    16: 'dieciséis',
+    17: 'diecisiete',
+    18: 'dieciocho',
+    19: 'diecinueve',
+    20: 'veinte',
+    30: 'treinta',
+    40: 'cuarenta',
+    50: 'cincuenta',
+    60: 'sesenta',
+    70: 'setenta',
+    80: 'ochenta',
+    90: 'noventa',
+    0: 'y',
+    21: 'coma',
+    100: 'cien',
+    1000: 'mil',
+    10000: 'millón',
+    100000: 'mil millones',
+    1000000: 'mil millones',
+    10000000: 'cuatrillón',
+    100000000: 'quintrillón',
+  };
+
 
 }

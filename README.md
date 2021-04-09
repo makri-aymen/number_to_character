@@ -15,8 +15,18 @@ samples, guidance on mobile development, and a full API reference.
 
 
 # How to use
-Simple instantiate NumberToCharacterConverter('en') class and call the method convertInt or convertDouble, inform the value parameter wich language you want,
-for now there is just three languages => English 'en', French 'fr', Arabic 'ar'
+
+First instantiate
+```
+NumberToCharacterConverter('en')
+```
+inform the value parameter to choose tha language you want,
+```
+arabic => ar
+frensh => fr
+english => en
+espanol => es
+```
 
 Example:
 var converter = NumberToCharacterConverter('en');
