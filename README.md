@@ -29,12 +29,15 @@ spanish => es
 ```
 
 Example:
+```
 var converter = NumberToCharacterConverter('en');
 converter.convertInt(99); // it shows ninety nine
+```
  OR
+```
 var converter = NumberToCharacterConverter('fr');
 converter.convertInt(99); // it shows quatre-vingt dix-neuf
-
+```
 
 # WHAT'S NEXT?
 add more languages
