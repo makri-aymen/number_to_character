@@ -25,7 +25,7 @@ inform the value parameter to choose tha language you want,
 arabic => ar
 frensh => fr
 english => en
-espanol => es
+spanish => es
 ```
 
 Example:
