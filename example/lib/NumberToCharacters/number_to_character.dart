@@ -3,9 +3,9 @@ import 'SegmentModel.dart';
 import 'number_mappings.dart';
 
 
-NumberSplitter _numberSplitter;
+late NumberSplitter _numberSplitter;
 NumberMappings _numberMappings = new NumberMappings("en");
-String langu;
+late String langu;
 class NumberToCharacterConverter {
 
   //NumberToCharacterConverter.init(String lang) : this._numberSplitter = InternationalNumberingSystemNumberSplitter();
@@ -139,25 +139,32 @@ class InternationalNumberingSystemNumberSplitter extends NumberSplitter {
     return segments.toList();
   }
 
-  SegmentModel _getSegmentForNumber(String numberString, {int noOfExistingSegments}) {
+  SegmentModel _getSegmentForNumber(String numberString, {int? noOfExistingSegments}) {
     var number = int.parse(numberString);
     var magnitude = _getOrderOfMagnitudeOfSegment(number, indexOfSegment: noOfExistingSegments);
     //print("-----------------------------------------------------"+magnitude.toString());
     return SegmentModel(number, magnitude);
   }
 
-  String _getOrderOfMagnitudeOfSegment(int segment, {int indexOfSegment}) {
+  String _getOrderOfMagnitudeOfSegment(int segment, {int? indexOfSegment}) {
     var magnitude = '';
 
-    if (segment != 0 && indexOfSegment % 6 == 1) magnitude = ' '+_numberMappings.mappings[1000];  //thousand
-    if (segment != 0 && indexOfSegment % 6 == 2) magnitude = ' '+_numberMappings.mappings[10000];  //million
-    if (segment != 0 && indexOfSegment % 6 == 3) magnitude = ' '+_numberMappings.mappings[100000];  //billion
-    if (segment != 0 && indexOfSegment % 6 == 4) magnitude = ' '+_numberMappings.mappings[1000000];  //trillion
-    if (segment != 0 && indexOfSegment % 6 == 5) magnitude = ' '+_numberMappings.mappings[10000000];  //quadrillion
+    if(indexOfSegment!=null) {
+      if (segment != 0 && indexOfSegment % 6 == 1)
+        magnitude = ' ' + _numberMappings.mappings[1000]; //thousand
+      if (segment != 0 && indexOfSegment % 6 == 2)
+        magnitude = ' ' + _numberMappings.mappings[10000]; //million
+      if (segment != 0 && indexOfSegment % 6 == 3)
+        magnitude = ' ' + _numberMappings.mappings[100000]; //billion
+      if (segment != 0 && indexOfSegment % 6 == 4)
+        magnitude = ' ' + _numberMappings.mappings[1000000]; //trillion
+      if (segment != 0 && indexOfSegment % 6 == 5)
+        magnitude = ' ' + _numberMappings.mappings[10000000]; //quadrillion
 
-    if (indexOfSegment > 0 && indexOfSegment % 6 == 0)
-      magnitude = ' '+_numberMappings.mappings.containsKey(100000000);  //quintrillion
-
+      if (indexOfSegment > 0 && indexOfSegment % 6 == 0)
+        magnitude = ' ' +
+            _numberMappings.mappings.containsKey(100000000); //quintrillion
+    }
     return magnitude;
   }
 }
