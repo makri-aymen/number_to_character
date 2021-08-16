@@ -1,6 +1,6 @@
 name: number_to_character
 description: A new Flutter plugin.
-version: 0.0.5
+version: 0.0.6
 homepage: https://github.com/makri-aymen/number_to_character
 #flutter pub publish --dry-run  to check the errors
 #flutter pub publish to publish the package

@@ -53,19 +53,23 @@ class _MyHomePageState extends State<MyHomePage> {
               'Convert your number to text',
             ),
             TextField(
+              onTap: (){
+                ControllerText.text= "";
+                ControllerText2.text= "";
+              },
               keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ], // Onl
               controller: ControllerText,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16,color: Colors.red),
             ),
             TextField(
-              keyboardType: TextInputType.number,
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.digitsOnly
-              ], // Onl
+              onTap: (){
+                Clipboard.setData(ClipboardData(text: ControllerText2.text));
+                ControllerText.text= "";
+                ControllerText2.text= "";
+              },
+              enabled: false,
+              keyboardType: TextInputType.number, // Onl
               controller: ControllerText2,
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 16,color: Colors.red),
@@ -75,11 +79,13 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
-          try{
+          try {
             //int number = int.parse(ControllerText.text);
-            ControllerText2.text = converter.convertInt(int.parse(ControllerText.text));
+            //ControllerText2.text = converter.convertInt(int.parse(ControllerText.text));
+            ControllerText2.text = converter.convertDouble(double.parse(ControllerText.text));
+
             //ControllerText2.text = converterold.convert(int.parse(ControllerText.text));
-          }catch(E){
+          } catch ( E ) {
 
           }
         },

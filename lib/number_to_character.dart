@@ -22,14 +22,15 @@ class NumberToCharacterConverter {
 
 
   String convertDouble(double number) {
-    if (number == null) return '';
+    if (number == null) return '' ;
 
     int firstNumber = int.parse(number.toString().split('.')[0]);
     int secondNumber = int.parse(number.toString().split('.')[1]);
     String numberInCharecters;
 
+
     numberInCharecters = getTextForNumber(firstNumber);
-    numberInCharecters += " "+_numberMappings.mappings[21].toString()+" "+getTextForNumber(secondNumber);
+    numberInCharecters += (secondNumber==0? "":" "+_numberMappings.mappings[21].toString()+" "+getTextForNumber(secondNumber));
 
     return numberInCharecters;
   }
