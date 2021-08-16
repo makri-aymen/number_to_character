@@ -3,9 +3,9 @@ import 'SegmentModel.dart';
 import 'number_mappings.dart';
 
 
-late NumberSplitter _numberSplitter;
+NumberSplitter _numberSplitter;
 NumberMappings _numberMappings = new NumberMappings("en");
-late String langu;
+String langu;
 class NumberToCharacterConverter {
 
   //NumberToCharacterConverter.init(String lang) : this._numberSplitter = InternationalNumberingSystemNumberSplitter();
@@ -140,14 +140,14 @@ class InternationalNumberingSystemNumberSplitter extends NumberSplitter {
     return segments.toList();
   }
 
-  SegmentModel _getSegmentForNumber(String numberString, {int? noOfExistingSegments}) {
+  SegmentModel _getSegmentForNumber(String numberString, {int noOfExistingSegments}) {
     var number = int.parse(numberString);
     var magnitude = _getOrderOfMagnitudeOfSegment(number, indexOfSegment: noOfExistingSegments);
     //print("-----------------------------------------------------"+magnitude.toString());
     return SegmentModel(number, magnitude);
   }
 
-  String _getOrderOfMagnitudeOfSegment(int segment, {int? indexOfSegment}) {
+  String _getOrderOfMagnitudeOfSegment(int segment, {int indexOfSegment}) {
     var magnitude = '';
 
     if(indexOfSegment!=null) {
