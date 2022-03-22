@@ -132,7 +132,7 @@ class NumberMappings {
 
 
   var mappingsEs = {
-    1: 'a',
+    1: 'uno',
     2: 'dos',
     3: 'tres',
     4: 'cuatro',
@@ -140,7 +140,7 @@ class NumberMappings {
     6: 'seis',
     7: 'siete',
     8: 'ocho',
-    9: 'nuevo',
+    9: 'nueve',
     10: 'diez',
     11: 'once',
     12: 'doce',
