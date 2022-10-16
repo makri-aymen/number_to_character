@@ -1,36 +1,39 @@
 library number_to_text_converter;
+import 'dart:developer';
+
 import 'SegmentModel.dart';
 import 'number_mappings.dart';
 
 
 late NumberSplitter _numberSplitter;
-NumberMappings _numberMappings = new NumberMappings("en");
+NumberMappings _numberMappings = NumberMappings("en");
 late String langu;
 class NumberToCharacterConverter {
 
   //NumberToCharacterConverter.init(String lang) : this._numberSplitter = InternationalNumberingSystemNumberSplitter();
   NumberToCharacterConverter(String lang){
     _numberSplitter = InternationalNumberingSystemNumberSplitter();
-    _numberMappings = new NumberMappings(lang);
+    _numberMappings = NumberMappings(lang);
     langu=lang;
   }
 
-  String convertInt(int number) {
+  String convertInt(int?  number) {
     if (number == null) return '';
+
     return getTextForNumber(number);
   }
 
 
-  String convertDouble(double number) {
+  String convertDouble(double? number) {
     if (number == null) return '' ;
 
     int firstNumber = int.parse(number.toString().split('.')[0]);
+
     int secondNumber = int.parse(number.toString().split('.')[1]);
     String numberInCharecters;
 
-
     numberInCharecters = getTextForNumber(firstNumber);
-    numberInCharecters += (secondNumber==0? "":" "+_numberMappings.mappings[21].toString()+" "+getTextForNumber(secondNumber));
+    numberInCharecters += (secondNumber==0? "":" ${_numberMappings.mappings[999999999]} ${getTextForNumber(secondNumber)}" );
 
     return numberInCharecters;
   }
@@ -59,15 +62,14 @@ class NumberToCharacterConverter {
 
     var lastTwoDigits = (number % 100).toInt();
     var lastTwoDigitsText = getTextForNumberLessThan100(lastTwoDigits);
-
     var digitAtHundredsPlace = number ~/ 100;
     var hundredsPlaceText = getMappingForNumber(digitAtHundredsPlace);
     if (hundredsPlaceText.isNotEmpty){
-      String aa=' '+_numberMappings.mappings[100].toString(); //hundred
+      String aa=' ${_numberMappings.mappings[100]}' ; //hundred
       hundredsPlaceText += aa;
     }
     if (hundredsPlaceText.isNotEmpty && lastTwoDigitsText.isNotEmpty){
-      String aa=' '+_numberMappings.mappings[0].toString()+' ';  //and
+      String aa=' ${_numberMappings.mappings[0]} ' ;  //and
       hundredsPlaceText += aa;
     }
 
@@ -81,8 +83,11 @@ class NumberToCharacterConverter {
 
   String getTextForNumberLessThan100(int number) {
     if (number > 99) return '';
+    //print( '/////////////////////////////${getMappingForNumber(number).isNotEmpty}/////////////////');
     if (getMappingForNumber(number).isNotEmpty)
       return getMappingForNumber(number);
+    // if (number < 10)
+    //   return getMappingForNumber(number);
 
     var onesPlace = (number % 10).toInt();
     var onesPlaceText = getMappingForNumber(onesPlace);
@@ -147,10 +152,10 @@ class InternationalNumberingSystemNumberSplitter extends NumberSplitter {
     return SegmentModel(number, magnitude);
   }
 
-  String _getOrderOfMagnitudeOfSegment(int segment, int indexOfSegment) {
+  String _getOrderOfMagnitudeOfSegment(int segment, int? indexOfSegment) {
     var magnitude = '';
 
-    if(indexOfSegment!=null) {
+    if( indexOfSegment != null) {
       if (segment != 0 && indexOfSegment % 6 == 1)
         magnitude = ' ' + _numberMappings.mappings[1000]; //thousand
       if (segment != 0 && indexOfSegment % 6 == 2)

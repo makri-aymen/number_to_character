@@ -1,4 +1,4 @@
-package com.makriaymenabderraouf.number_to_character_example
+package com.example.number_to_character_example
 
 import io.flutter.embedding.android.FlutterActivity
 

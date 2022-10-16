@@ -1,23 +1,29 @@
-import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:number_to_character/number_to_character.dart';
+import 'package:number_to_character/number_to_character_platform_interface.dart';
+import 'package:number_to_character/number_to_character_method_channel.dart';
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+
+class MockNumberToCharacterPlatform
+    with MockPlatformInterfaceMixin
+    implements NumberToCharacterPlatform {
+
+  @override
+  Future<String?> getPlatformVersion() => Future.value('42');
+}
 
 void main() {
-  const MethodChannel channel = MethodChannel('number_to_character');
+  final NumberToCharacterPlatform initialPlatform = NumberToCharacterPlatform.instance;
 
-  TestWidgetsFlutterBinding.ensureInitialized();
-
-  setUp(() {
-    channel.setMockMethodCallHandler((MethodCall methodCall) async {
-      return '42';
-    });
-  });
-
-  tearDown(() {
-    channel.setMockMethodCallHandler(null);
+  test('$MethodChannelNumberToCharacter is the default instance', () {
+    expect(initialPlatform, isInstanceOf<MethodChannelNumberToCharacter>());
   });
 
   test('getPlatformVersion', () async {
-    expect(await NumberToCharacter.platformVersion, '42');
+    NumberToCharacter numberToCharacterPlugin = NumberToCharacter();
+    MockNumberToCharacterPlatform fakePlatform = MockNumberToCharacterPlatform();
+    NumberToCharacterPlatform.instance = fakePlatform;
+
+    expect(await numberToCharacterPlugin.getPlatformVersion(), '42');
   });
 }

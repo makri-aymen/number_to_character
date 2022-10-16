@@ -4,7 +4,6 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/number_to_character.iml" filepath="$PROJECT_DIR$/number_to_character.iml" />
       <module fileurl="file://$PROJECT_DIR$/android/number_to_character_android.iml" filepath="$PROJECT_DIR$/android/number_to_character_android.iml" />
-      <module fileurl="file://$PROJECT_DIR$/example/android/number_to_character_example_android.iml" filepath="$PROJECT_DIR$/example/android/number_to_character_example_android.iml" />
     </modules>
   </component>
 </project>

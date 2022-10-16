@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'NumberToCharacters/number_to_character.dart';
 
 
-
-final ControllerText = TextEditingController(text: "1998" );
+final ControllerText = TextEditingController(text: "0" );
 final ControllerText2 = TextEditingController(text: "" );
 var converter = NumberToCharacterConverter('en');
-//var converterold = NumberToTextConverter.forInternationalNumberingSystem();
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
+            const Text(
               'Convert your number to text',
             ),
             TextField(
@@ -60,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               keyboardType: TextInputType.number,
               controller: ControllerText,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16,color: Colors.red),
+              style: const TextStyle(fontSize: 16,color: Colors.red),
             ),
             TextField(
               onTap: (){
@@ -72,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               keyboardType: TextInputType.number, // Onl
               controller: ControllerText2,
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 16,color: Colors.red),
+              style: const TextStyle(fontSize: 16,color: Colors.red),
             ),
           ],
         ),
@@ -81,16 +78,16 @@ class _MyHomePageState extends State<MyHomePage> {
         onPressed: () async {
           try {
             //int number = int.parse(ControllerText.text);
-            //ControllerText2.text = converter.convertInt(int.parse(ControllerText.text));
-            ControllerText2.text = converter.convertDouble(double.parse(ControllerText.text));
+            // ControllerText2.text = converter.convertInt(int.parse(ControllerText.text));
+             ControllerText2.text = converter.convertDouble(double.parse(ControllerText.text));
 
             //ControllerText2.text = converterold.convert(int.parse(ControllerText.text));
-          } catch ( E ) {
+          } catch (exception) {
 
           }
         },
         tooltip: 'Convert',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }

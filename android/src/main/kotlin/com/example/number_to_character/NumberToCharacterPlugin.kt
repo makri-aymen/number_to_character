@@ -1,4 +1,4 @@
-package com.makriaymenabderraouf.number_to_character
+package com.example.number_to_character
 
 import androidx.annotation.NonNull
 
@@ -7,7 +7,6 @@ import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import io.flutter.plugin.common.PluginRegistry.Registrar
 
 /** NumberToCharacterPlugin */
 class NumberToCharacterPlugin: FlutterPlugin, MethodCallHandler {
